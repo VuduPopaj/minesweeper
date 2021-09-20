@@ -1,7 +1,5 @@
 import React from "react";
 
-// emojis: 🚩 💣
-
 export default class Cell extends React.Component {
   getValue() {
     const { value } = this.props;

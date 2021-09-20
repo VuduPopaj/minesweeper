@@ -1,9 +1,9 @@
+/* eslint-disable array-callback-return */
 import React from "react";
 import PropTypes from "prop-types";
 import Cell from "./Cell";
-/* eslint-disable array-callback-return */
 
-// emojis: ⌛ 😔 👍
+/*emojis: ⌛ 😔 👍*/
 
 export default class Board extends React.Component {
   state = {
@@ -12,7 +12,7 @@ export default class Board extends React.Component {
       this.props.width,
       this.props.mines
     ),
-    gameStatus: "In progress... ⌛",
+    gameStatus: "In progress...⌛",
     mineCount: this.props.mines,
     gameStart: true,
     span: (
@@ -213,7 +213,7 @@ export default class Board extends React.Component {
       return null;
 
     if (this.state.boardData[x][y].isMine) {
-      this.setState({ gameStatus: "You lost!😔" });
+      this.setState({ gameStatus: "You lost! 😔" });
       this.revealBoard();
       this.setState({ gameStart: false });
     }
@@ -227,7 +227,7 @@ export default class Board extends React.Component {
     }
 
     if (this.getHidden(updatedData).length === this.props.mines) {
-      this.setState({ mineCount: 0, gameStatus: "You won!👍" });
+      this.setState({ mineCount: 0, gameStatus: "You won! 👍" });
       this.revealBoard();
       this.setState({ gameStart: false });
     }
@@ -257,7 +257,7 @@ export default class Board extends React.Component {
       const mineArray = this.getMines(updatedData);
       const FlagArray = this.getFlags(updatedData);
       if (JSON.stringify(mineArray) === JSON.stringify(FlagArray)) {
-        this.setState({ mineCount: 0, gameStatus: "You won!👍" });
+        this.setState({ mineCount: 0, gameStatus: "You won! 👍" });
         this.revealBoard();
         this.setState({ gameStart: false });
       }
@@ -276,7 +276,7 @@ export default class Board extends React.Component {
           <div key={dataitem.x * datarow.length + dataitem.y}>
             <Cell
               onClick={() => this.handleCellClick(dataitem.x, dataitem.y)}
-              cMenu={(e) => this.handleContextMenu(e, dataitem.x, dataitem.y)}
+              Menu={(e) => this.handleContextMenu(e, dataitem.x, dataitem.y)}
               value={dataitem}
             />
             {datarow[datarow.length - 1] === dataitem ? (
